@@ -12,6 +12,7 @@ import plotly.express as px
 import plotly
 import plotly.graph_objects as go
 import json
+from waitress import serve
 from mlxtend.frequent_patterns import apriori, association_rules
 
 app = Flask(__name__)
@@ -766,5 +767,5 @@ def association_rules_view():
 
     return render_template('association_rules.html', rules=rules_data, unique_values=unique_values)
 
-if __name__ == '__main__':
-    app.run(debug=False,host='0.0.0.0')
+if __name__ == "__main__":
+    serve(app, host="0.0.0.0", port=8080)
