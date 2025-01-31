@@ -1,8 +1,14 @@
 {
-    "builds": [{ "src": "app.py", "use": "@vercel/python" }],
-    "routes": [{ "src": "/(.*)", "dest": "app.py" }],
-    "env": {
-      "PYTHON_VERSION": "3.10.0"
+  "builds": [
+    {
+      "src": "app.py",
+      "use": "@vercel/python",
+      "config": {
+        "buildCommand": "pip install distutils && pip install -r requirements.txt"
+      }
     }
-  }
-  
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "app.py" }
+  ]
+}
