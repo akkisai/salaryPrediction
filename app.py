@@ -767,4 +767,4 @@ def association_rules_view():
     return render_template('association_rules.html', rules=rules_data, unique_values=unique_values)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False,host='0.0.0.0')
