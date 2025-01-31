@@ -7,12 +7,10 @@ from sklearn.svm import SVR
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error,r2_score
 from sklearn.preprocessing import LabelEncoder
-from sklearn.utils.validation import check_is_fitted,NotFittedError
 import plotly.express as px
 import plotly
 import plotly.graph_objects as go
 import json
-from waitress import serve
 from mlxtend.frequent_patterns import apriori, association_rules
 
 app = Flask(__name__)
@@ -768,4 +766,4 @@ def association_rules_view():
     return render_template('association_rules.html', rules=rules_data, unique_values=unique_values)
 
 if __name__ == "__main__":
-    serve(app, host="0.0.0.0", port=8080)
+    app.run(debug=True)
